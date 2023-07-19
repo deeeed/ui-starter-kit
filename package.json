@@ -1,6 +1,6 @@
 {
   "name": "siteed-ui-starter-kit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "shared ui library",
   "main": "src/index.ts",
   "module": "lib/module/index",
