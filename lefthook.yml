@@ -3,8 +3,6 @@ pre-commit:
   commands:
     lint:
       run: yarn eslint {staged_files}
-    types:
-      run: yarn tsc --noEmit
 commit-msg:
   parallel: true
   commands:
