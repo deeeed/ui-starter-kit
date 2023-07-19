@@ -1,4 +1,4 @@
-# fmui
+# UI Lib Starter Kit
 
 shared ui library starter kit for native and web compatibility
 
