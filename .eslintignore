@@ -8,3 +8,4 @@ yarn.lock
 package.json
 example/assets
 README.md
+release-it.json
