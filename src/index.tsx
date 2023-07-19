@@ -1,3 +1,8 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
+export * from './components/Button/Button';
+
+export * from './components/Testing/Testing';
+
+export const plop = () => {
+  console.debug(`plop`);
+  return 'plop';
+};

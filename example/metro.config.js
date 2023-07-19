@@ -5,7 +5,12 @@ const exclusionList = require('metro-config/src/defaults/exclusionList');
 const pak = require('../package.json');
 
 const root = path.resolve(__dirname, '..');
-const modules = Object.keys({ ...pak.peerDependencies });
+const modules = [
+  '@expo/vector-icons',
+  'expo-constants',
+  '@react-navigation/native',
+  ...Object.keys({ ...pak.peerDependencies }),
+];
 
 const defaultConfig = getDefaultConfig(__dirname);
 

@@ -1,31 +1,24 @@
 # fmui
 
-shared ui library
+shared ui library for native and web compatibility
 
 ## Installation
 
 ```sh
-npm install fmui
+yarn
+yarn bootstrap
 ```
-
 ## Usage
 
-```js
-import { multiply } from 'fmui';
+This repo comes with multiple ways to validate the library
+- storybook (validate both web and on device)
+- example app
 
-// ...
-
-const result = await multiply(3, 7);
+```sh
+# Check your stories with storybook (best to validate on web)
+yarn storybook
+# or on device
+yarn storybook:device
 ```
 
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
-## License
-
-MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+Feel free to modify the example app to test the full flow on device.
