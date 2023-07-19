@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 import { MD3LightTheme as DefaultTheme, PaperProvider } from 'react-native-paper';
-import { useFonts } from 'expo-font';
 
 const theme = {
   ...DefaultTheme,
