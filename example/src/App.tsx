@@ -1,42 +1,30 @@
 import * as React from 'react';
 
-import { Testing, Button } from 'fmui';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import {
-  PaperProvider,
-  MD3DarkTheme,
-  MD3LightTheme,
-  MD2DarkTheme,
-  MD2LightTheme,
-  MD2Theme,
-  MD3Theme,
-  useTheme,
-  adaptNavigationTheme,
-  configureFonts,
-} from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import {
   InitialState,
   NavigationContainer,
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
-import { LogBox, StyleSheet, View } from 'react-native';
 import { useFonts } from 'expo-font';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { LogBox } from 'react-native';
+import {
+  MD2DarkTheme,
+  MD2LightTheme,
+  MD3DarkTheme,
+  MD3LightTheme,
+  PaperProvider,
+  adaptNavigationTheme,
+  configureFonts,
+} from 'react-native-paper';
+import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
+import DrawerItems from './DrawerItems';
+import RootNavigator from './RootNavigator';
+import { PreferencesContext } from './context/PreferencesContext';
 
-export const useExampleTheme = () => useTheme<MD2Theme | MD3Theme>();
-
-export const PreferencesContext = React.createContext<{
-  toggleTheme: () => void;
-  toggleThemeVersion: () => void;
-  toggleCollapsed: () => void;
-  toggleCustomFont: () => void;
-  toggleRippleEffect: () => void;
-  customFontLoaded: boolean;
-  rippleEffectEnabled: boolean;
-  collapsed: boolean;
-  theme: MD2Theme | MD3Theme;
-} | null>(null);
+const Drawer = createDrawerNavigator<{ Home: undefined }>();
 
 const PERSISTENCE_KEY = 'NAVIGATION_STATE';
 const PREFERENCES_KEY = 'APP_PREFERENCES';
@@ -180,7 +168,7 @@ export default function App() {
       theme={customFontLoaded ? configuredFontTheme : theme}
     >
       <PreferencesContext.Provider value={preferences}>
-        <NavigationContainer
+        {/* <NavigationContainer
           theme={combinedTheme}
           initialState={initialState}
           onStateChange={(state) =>
@@ -189,26 +177,43 @@ export default function App() {
         >
           <View style={styles.container}>
             <Ionicons name="md-checkmark-circle" size={32} color="green" />
-            <Testing />
-            <Button mode="contained" onPress={() => console.log('Pressed')}>
-              uibutton
-            </Button>
           </View>
-        </NavigationContainer>
+        </NavigationContainer> */}
+        <React.Fragment>
+          <NavigationContainer
+            theme={combinedTheme}
+            initialState={initialState}
+            onStateChange={(state) => {
+              AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state));
+              console.debug(`updated state: ${state}`);
+            }}
+          >
+            <SafeAreaInsetsContext.Consumer>
+              {(insets) => {
+                const { left, right } = insets || { left: 0, right: 0 };
+                const collapsedDrawerWidth = 80 + Math.max(left, right);
+                return (
+                  <Drawer.Navigator
+                    screenOptions={{
+                      drawerStyle: collapsed && {
+                        width: collapsedDrawerWidth,
+                      },
+                    }}
+                    // eslint-disable-next-line react/no-unstable-nested-components
+                    drawerContent={() => <DrawerItems />}
+                  >
+                    <Drawer.Screen
+                      name="Home"
+                      component={RootNavigator}
+                      options={{ headerShown: false }}
+                    />
+                  </Drawer.Navigator>
+                );
+              }}
+            </SafeAreaInsetsContext.Consumer>
+          </NavigationContainer>
+        </React.Fragment>
       </PreferencesContext.Provider>
     </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});

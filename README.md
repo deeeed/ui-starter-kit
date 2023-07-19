@@ -1,6 +1,6 @@
 # fmui
 
-shared ui library for native and web compatibility
+shared ui library starter kit for native and web compatibility
 
 ## Installation
 
@@ -19,6 +19,10 @@ This repo comes with multiple ways to validate the library
 yarn storybook
 # or on device
 yarn storybook:device
+
+# or with a full working example
+cd example
+yarn start
 ```
 
 Feel free to modify the example app to test the full flow on device.

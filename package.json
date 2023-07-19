@@ -33,7 +33,7 @@
     "storybook:device": "yarn sb-rn-get-stories --config-path .ondevice && expo start",
     "poststorybook:device": "jq '.main = \"src/index.ts\"' package.json > tmp.json && mv tmp.json package.json",
     "build-storybook": "storybook build",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepack": "bob build",
     "release": "release-it",
