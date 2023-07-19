@@ -1,6 +1,6 @@
 {
   "name": "siteed-ui-starter-kit",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "shared ui library",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
