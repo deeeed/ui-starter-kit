@@ -36,7 +36,7 @@
     "typecheck": "tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepack": "bob build",
-    "release": "release-it",
+    "release": "release-it -c release-it.json",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn install"
   },
