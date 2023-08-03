@@ -9,3 +9,4 @@ package.json
 example/assets
 README.md
 release-it.json
+**/*.gif

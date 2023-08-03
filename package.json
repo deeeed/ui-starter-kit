@@ -2,7 +2,7 @@
   "name": "siteed-ui-starter-kit",
   "version": "0.3.2",
   "description": "shared ui library",
-  "main": "lib/commonjs/index",
+  "main": "src/index.ts",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
   "react-native": "src/index",
