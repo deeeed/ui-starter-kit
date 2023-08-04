@@ -55,7 +55,9 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-native-svg": "^13.10.0"
+  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*",

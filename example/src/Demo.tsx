@@ -7,7 +7,7 @@ import { CommonActions } from '@react-navigation/native';
 import { BottomNavigation, Text } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ExampleList from './ExampleList';
-import { Testing, Button } from 'siteed-ui-starter-kit';
+import { Testing, Button, CharacterIcon } from 'siteed-ui-starter-kit';
 
 type TabParamList = {
   'UI Demo': undefined;
@@ -21,6 +21,7 @@ function HomeScreen() {
     <View style={styles.container}>
       <Text variant="headlineMedium">Test your lib components here</Text>
       <Testing />
+      <CharacterIcon />
       <Button>Test</Button>
     </View>
   );
