@@ -36,6 +36,7 @@ export default function ScreenWrapper({
       paddingBottom: insets.bottom,
       paddingLeft: insets.left,
       paddingRight: insets.left,
+      paddingTop: insets.top,
     },
   ];
 
@@ -46,7 +47,6 @@ export default function ScreenWrapper({
           {...rest}
           contentContainerStyle={contentContainerStyle}
           keyboardShouldPersistTaps="always"
-          alwaysBounceVertical={false}
           showsVerticalScrollIndicator={false}
           style={[containerStyle, style]}
         >

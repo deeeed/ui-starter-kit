@@ -11,6 +11,8 @@ import { Appbar } from 'react-native-paper';
 
 import ExampleList, { examples } from './ExampleList';
 import Demo from './Demo';
+import { BeginTest } from './BeginTest';
+import { TestCards } from './TestCards';
 
 const Stack = createStackNavigator();
 
@@ -77,6 +79,20 @@ export default function Root() {
           />
         );
       })}
+      <Stack.Screen
+        name="BeginTest"
+        component={BeginTest}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="TestCards"
+        component={TestCards}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 }

@@ -7,21 +7,27 @@ import { CommonActions } from '@react-navigation/native';
 import { BottomNavigation, Text } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ExampleList from './ExampleList';
-import { Testing, Button } from 'siteed-ui-starter-kit';
+import { Button } from 'siteed-ui-starter-kit';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 type TabParamList = {
   'UI Demo': undefined;
   'Native Paper': undefined;
 };
 
+type ScreenProps = {
+  navigation: StackNavigationProp<{ [key: string]: undefined }>;
+};
+
 const Tab = createBottomTabNavigator<TabParamList>();
 
-function HomeScreen() {
+function HomeScreen({ navigation }: ScreenProps) {
   return (
     <View style={styles.container}>
       <Text variant="headlineMedium">Test your lib components here</Text>
-      <Testing />
-      <Button>Test</Button>
+      <Button onPress={() => navigation.navigate('BeginTest')}>
+        Go To Flash Cards
+      </Button>
     </View>
   );
 }
