@@ -39,9 +39,9 @@ const Card = ({
         </View>
         {isExpanded ? (
           <View style={styles.hiddenTextContainer}>
-            {expandedText.map(({ label, value }) => (
-              <View style={styles.hiddenRowContainer}>
-                <Text style={styles.label}>{`${label}: `}</Text>
+            {expandedText.map(({ label: title, value }) => (
+              <View style={styles.hiddenRowContainer} key={`${title}-${value}`}>
+                <Text style={styles.label}>{`${title}: `}</Text>
                 <Text style={styles.value}>{value}</Text>
               </View>
             ))}
