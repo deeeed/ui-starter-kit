@@ -7,7 +7,17 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/addon-react-native-web"
+    "@storybook/addon-react-native-web",
+    {
+      name: '@storybook/addon-react-native-web',
+      options: {
+        modulesToTranspile: ['react-native-reanimated'],
+        babelPlugins: [
+          '@babel/plugin-proposal-export-namespace-from',
+          'react-native-reanimated/plugin',
+        ],
+      },
+    },
   ],
   framework: {
     name: "@storybook/react-webpack5",

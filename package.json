@@ -56,13 +56,15 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "react-native-svg": "^13.10.0"
+    "react-native-svg": "^13.11.0"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
     "react-native-paper": "*",
+    "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
+    "react-native-svg": "*",
     "react-native-vector-icons": "*"
   },
   "devDependencies": {
@@ -111,6 +113,7 @@
     "react-native": "^0.72.3",
     "react-native-builder-bob": "^0.20.0",
     "react-native-paper": "^5.9.1",
+    "react-native-reanimated": "^3.4.2",
     "react-native-safe-area-context": "^4.7.1",
     "react-native-vector-icons": "^10.0.0",
     "react-native-web": "^0.19.6",
