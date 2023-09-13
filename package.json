@@ -53,8 +53,7 @@
   },
   "homepage": "https://github.com/deeeed/ui-starter-kit#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "react-native-svg": "^13.11.0"
